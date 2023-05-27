@@ -1,0 +1,28 @@
+{%extends 'parent.html'%}
+{%block tit%}
+Trainees _ List
+{%endblock%}
+{%block header%}
+Trainees _ List
+{%endblock%}
+{%block content%}
+<h1>{{1 | add:2}}</h1>
+    <table width="100%" border="1">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>Actions</th>
+        </tr>
+        {%for trainee in trainees%}
+            <tr>
+                <td>{{trainee| first}}</td>
+                <td>{{trainee.1}}</td>
+                <td>
+                    <a href="{%url 'traineeupdate' trainee.0 %}">Delete</a>
+                    <a href="{%url 'traineeupdate' trainee.0 %}">update</a>
+                </td>
+            </tr>
+        {%endfor%}
+    </table>
+
+{%endblock%}
