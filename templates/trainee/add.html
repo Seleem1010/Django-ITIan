@@ -14,10 +14,14 @@ Trainees _ Header
     <div class="main-agileinfo">
         <div class="agileits-top">
             <form action="#" method="post">
-                <input style="background-color:blue;" class="text" type="text" name="id" placeholder="ID" required="">
-                <input style="background-color:blue;"class="text" type="text" name="name" placeholder="Name" required="">
-                
-                <input type="submit" value="Submit">
+                {% csrf_token %}
+                <input style="background-color:blue;" class="text" type="text" name="trainee_name" placeholder="Name" required="">
+                <select name="course">
+                    {%for course in courses%}
+                        <option value="{{course.id}}">{{course.name}}</option>
+                    {%endfor%}
+                </select>        
+                <input type="submit" value="ADD">
             </form>
         </div>
     </div>

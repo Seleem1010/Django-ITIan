@@ -30,6 +30,6 @@ urlpatterns = [
     #for account
     path('',Login,name='Login'),
     path('Logout',Logout,name='Logout'),
-    path('Registration',Registration,name='Registration'),
+    path('Registeration',Registeration,name='Registeration'),
     
 ]

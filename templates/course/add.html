@@ -6,5 +6,26 @@ Courses _ ADD
 Courses _ Header
 {%endblock%}
 {%block content%}
-Courses _ <content></content>
+<div class="main-w3layouts wrapper">
+    <h1 style="color:grey;">Add Course</h1>
+    <div class="main-agileinfo">
+        <div class="agileits-top">
+            <form action="#" method="post">
+                {% csrf_token %}
+                <input style="background-color:blue;" class="text" type="text" name="course_name" placeholder="Name" required="">
+                <input type="submit" value="add">
+            </form>
+        </div>
+    </div>
+    
+
+</div>
+
+{% load static %}
+<!-- Custom Theme files -->
+<link href="{% static 'mycss/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+
+
 {%endblock%}

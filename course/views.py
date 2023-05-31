@@ -1,22 +1,33 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
+from course.models import *
 
 # Create your views here.
 
 def courselist(req):
-    courses=[(1,'course1'),(2,'course2'),(3,'course3')]
-    context={}
-    context['courses']=courses
-    return  render(req,'course/list.html',context)
+    if( 'username' in req.session):
+        courses = Course.objects.all()
+        context={}
+        context['courses'] = courses
+        return  render(req,'course/list.html',context)
+    else:
+        return HttpResponseRedirect('/')
 
 
 def courseadd(req):
-    return render(req,'course/add.html')
+    if( 'username' in req.session):
+        context={}
+        if(req.method == 'POST'):
+            name=req.POST['course_name']
+            Course.objects.create(name=name)
+        return render(req,'course/add.html',context)
+    else:
+        return HttpResponseRedirect('/')
 
 
 def courseupdate(req,id):
-    return HttpResponseRedirect('/Courses')
+    return HttpResponseRedirect('Courseupdate')
 
 
 def coursedelete(req,id):
-    return HttpResponse('hi id ='+str(id)+' deleted')
+    return HttpResponse('Coursedelete')
