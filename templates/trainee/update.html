@@ -9,18 +9,18 @@ Trainees _ Update
     <form method="post">
         {%csrf_token%}
         <input type="text" name="trainee_name" value="{{trainee_data.name}}">
-        </br>
+        <br>
         <select name="course">
             {%for course in courses%}
                 <option value= "{{course.id}}"
                 {% if course.id == trainee_data.course_id.id %}
                         selected
-                        {%endif%}
+                {%endif%}
                 >{{course.name}}</option>
             {%endfor%}
-        </select>
-
-        </br>
+        </select> 
+            
+        <br> 
         <input type="submit" value="Update">
     </form>
 

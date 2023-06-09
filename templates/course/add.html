@@ -3,7 +3,11 @@
 Courses _ ADD
 {%endblock%}
 {%block header%}
-Courses _ Header
+    {% if not request.session.username %}
+            Guest
+    {% else %}
+            {{ request.session.username }}
+    {% endif %}
 {%endblock%}
 {%block content%}
 <div class="main-w3layouts wrapper">

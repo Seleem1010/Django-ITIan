@@ -1,0 +1,31 @@
+{% extends 'parent.html' %}
+
+{% block tit %}
+Trainees _ ADD
+{% endblock %}
+
+{% block header %}
+{% if not request.session.username %}
+Guest
+{% else %}
+{{ request.session.username }}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Add Trainee using form</h1>
+
+            <form method="post">
+                {% csrf_token %}
+                
+                {{form.as_p}}
+
+                <input type="submit" value="ADD">
+            </form>
+
+</div>
+
+
+
+{% endblock %}

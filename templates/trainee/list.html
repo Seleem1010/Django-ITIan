@@ -3,7 +3,11 @@
 Trainees _ List
 {%endblock%}
 {%block header%}
-Trainees _ List
+{% if not request.session.username %}
+Guest
+{% else %}
+{{ request.session.username }}
+{% endif %}
 {%endblock%}
 {%block content%}
 <h1>{{1 | add:2}}</h1>
